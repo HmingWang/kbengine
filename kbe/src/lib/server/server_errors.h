@@ -1,22 +1,4 @@
-/*
-This source file is part of KBEngine
-For the latest info, see http://www.kbengine.org/
-
-Copyright (c) 2008-2016 KBEngine.
-
-KBEngine is free software: you can redistribute it and/or modify
-it under the terms of the GNU Lesser General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-KBEngine is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Lesser General Public License for more details.
- 
-You should have received a copy of the GNU Lesser General Public License
-along with KBEngine.  If not, see <http://www.gnu.org/licenses/>.
-*/
+// Copyright 2008-2018 Yolo Technologies, Inc. All Rights Reserved. https://www.comblockengine.com
 
 #ifndef KBE_SERVER_ERRORS_H
 #define KBE_SERVER_ERRORS_H
@@ -39,7 +21,7 @@ typedef uint16 SERVER_ERROR_CODE;										// 错误码类别
 #define SERVER_ERR_NAME_PASSWORD							4			// 用户名或者密码不正确。
 #define SERVER_ERR_NAME										5			// 用户名不正确。
 #define SERVER_ERR_PASSWORD									6			// 密码不正确。
-#define SERVER_ERR_ACCOUNT_CREATE_FAILED					7			// 创建账号失败（已经存在一个相同的账号）。
+#define SERVER_ERR_ACCOUNT_CREATE_FAILED					7			// 创建账号失败。
 #define SERVER_ERR_BUSY										8			// 操作过于繁忙(例如：在服务器前一次请求未执行完毕的情况下连续N次创建账号)。
 #define SERVER_ERR_ACCOUNT_LOGIN_ANOTHER					9			// 当前账号在另一处登录了。
 #define SERVER_ERR_ACCOUNT_IS_ONLINE						10			// 你已经登录了，服务器拒绝再次登录。
@@ -69,7 +51,8 @@ typedef uint16 SERVER_ERROR_CODE;										// 错误码类别
 #define SERVER_ERR_USER10									34			// 用户自定义错误码10
 #define SERVER_ERR_LOCAL_PROCESSING							35			// 本地处理，通常为某件事情不由第三方处理而是由KBE服务器处理
 #define SERVER_ERR_ACCOUNT_RESET_PASSWORD_NOT_AVAILABLE		36			// 未开放账号重置密码功能。
-#define SERVER_ERR_MAX										37          // 请把这条放在所有错误的最后面，这本身不是一个错误标识，仅表示一共有多少条错误定义
+#define SERVER_ERR_ACCOUNT_LOGIN_ANOTHER_SERVER				37			// 当前账号在其他服务器登陆了
+#define SERVER_ERR_MAX										38          // 请把这条放在所有错误的最后面，这本身不是一个错误标识，仅表示一共有多少条错误定义
 
 const char SERVER_ERR_STR[][256] = {
 	"SERVER_SUCCESS",
@@ -108,7 +91,8 @@ const char SERVER_ERR_STR[][256] = {
 	"SERVER_ERR_USER9",
 	"SERVER_ERR_USER10",
 	"SERVER_ERR_LOCAL_PROCESSING",
-	"SERVER_ERR_ACCOUNT_RESET_PASSWORD_NOT_AVAILABLE"
+	"SERVER_ERR_ACCOUNT_RESET_PASSWORD_NOT_AVAILABLE",
+	"SERVER_ERR_ACCOUNT_LOGIN_ANOTHER_SERVER"
 };
 
 }
